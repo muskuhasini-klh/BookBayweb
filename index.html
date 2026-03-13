@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BookBay</title>
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+body{
+  background:#f4f4f4;
+}
+
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:#c8a27a;   
+  padding:15px 60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  font-size:22px;
+  font-weight:bold;
+  color:white;
+}
+
+.logo i{
+  margin-right:10px;
+  font-size:24px;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+}
+
+.nav-links a{
+  color:white;
+  text-decoration:none;
+  margin:0 15px;
+  font-weight:500;
+}
+
+.nav-links a:hover{
+  text-decoration:underline;
+}
+
+.right-section{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.login-btn{
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+.login-btn:hover{
+  text-decoration: underline;
+}
+
+.hero{
+  margin-top:80px;
+  height:400px;
+  background:url("https://images.unsplash.com/photo-1512820790803-83ca734da794") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+}
+
+.hero-content{
+  position:relative;
+  color:white;
+  text-align:center;
+  z-index:1;
+}
+
+.hero-content h1{
+  font-size:42px;
+  margin-bottom:15px;
+}
+
+.hero-content p{
+  font-size:18px;
+}
+
+.genres{
+  padding:60px;
+}
+
+.genres h2{
+  margin-bottom:25px;
+  font-size:26px;
+}
+
+.genre-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.genre-card{
+  position:relative;
+  height:140px;   
+  overflow:hidden;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+.genre-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:0.4s;
+}
+
+.genre-card:hover img{
+  transform:scale(1.1);
+}
+
+.genre-title{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  background:rgba(0,0,0,0.6);
+  color:white;
+  text-align:center;
+  padding:10px;
+  font-weight:bold;
+}
+
+
+.popular{
+  padding:60px;
+  background:white;
+  
+}
+.popular h2{
+  margin-bottom:25px;
+  font-size:26px;
+}
+
+.book-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:25px;
+}
+
+.book-card{
+  background:#f9f9f9;
+  border-radius:10px;
+  padding:12px;
+  text-align:center;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+
+.book-card:hover{
+  transform:translateY(-5px);
+}
+
+.book-card img{
+  width:100%;
+  height:200px;   
+  object-fit:cover;
+  border-radius:8px;
+  margin-bottom:8px;
+}
+
+.book-card h4{
+  margin-bottom:5px;
+  font-size:15px;
+}
+
+.price{
+  color:#c8a27a;
+  font-weight:bold;
+}
+
+
+.footer{
+  background:#222;
+  color:white;
+  text-align:center;
+  padding:20px;
+  margin-top:40px;
+}
+.footer-extra{
+  margin-top:20px;
+  padding-top:15px;
+  border-top:1px solid rgba(255,255,255,0.4);
+  font-size:14px;
+  color:white;
+}
+.big-footer{
+  background:#c8a27a;   
+  color:white;
+  padding:60px 80px 30px 80px;
+  margin-top:80px;
+}
+
+.footer-container{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  margin-bottom:40px;
+}
+
+.footer-column{
+  display:flex;
+  flex-direction:column;
+  min-width:200px;
+}
+
+.footer-column h3{
+  margin-bottom:20px;
+  font-size:20px;
+  font-weight:bold;
+}
+
+.footer-column a{
+  text-decoration:none;
+  color:white;
+  margin-bottom:10px;
+  font-size:15px;
+}
+
+.footer-column a:hover{
+  text-decoration:underline;
+}
+
+.footer-bottom-row{
+  display:flex;
+  justify-content:space-between;
+  border-top:1px solid rgba(255,255,255,0.4);
+  padding-top:20px;
+  font-size:14px;
+}
+
+
+body{
+  margin:0;
+  padding:0;
+}
+
+.big-footer{
+  margin:0;
+  width:100%;
+  display:block;
+}
+html{
+  scroll-behavior: smooth;
+}
+.search-bar{
+  display:flex;
+  align-items:center;
+  background:white;
+  border-radius:25px;
+  overflow:hidden;
+  margin-left:20px;
+}
+
+.search-bar input{
+  border:none;
+  outline:none;
+  padding:6px 12px;
+  font-size:14px;
+  width:160px;
+}
+
+.search-bar button{
+  border:none;
+  background:#b08968;   
+  color:white;
+  padding:6px 12px;
+  cursor:pointer;
+}
+
+.search-bar button:hover{
+  background:#9c7b5c;
+}
+.navbar{
+  margin:0;
+  padding:15px 60px;
+}
+
+body{
+  margin:0;
+}
+
+
+.dark-mode{
+  background:black;
+  color:white;
+}
+
+.dark-mode .navbar{
+  background:black;
+}
+
+.dark-mode .genres{
+  background:black;
+}
+
+.dark-mode .popular{
+  background:black;
+}
+
+.dark-mode .book-card{
+  background:#111;
+  color:white;
+}
+
+.dark-mode .footer{
+  background:black;
+  color:white;
+}
+
+.dark-mode .big-footer{
+  background:black;
+}
+
+.dark-mode .nav-links a{
+  color:white;
+}
+
+#loader{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  background:#c8a27a;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:2000;
+}
+
+.quote{
+  font-size:28px;
+  color:white;
+  text-align:center;
+  width:60%;
+  line-height:1.6;
+  font-style:italic;
+}
+
+</style>
+</head>
+
+<body>
+
+ <div id="loader">
+  <p class="quote">
+    "A reader lives a thousand lives before he dies." <br>
+    – George R.R. Martin
+  </p>
+</div>
+
+<div class="navbar">
+
+ <div class="logo">
+  📖 BookBay
+</div>
+
+  <div class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#">Books</a>
+    <a href="#genres">Genres</a>
+    <a href="#contact">Contact</a>
+    
+
+  </div>
+  <div class="search-bar">
+  <input type="text" placeholder="Search books...">
+</div>
+
+  <div class="right-section">
+    <a href="login.html" class="login-btn">Login</a>
+    <button onclick="toggleDarkMode()" class="dark-btn">🌙</button>
+  </div>
+
+</div>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>FREE & DISCOUNTED BESTSELLERS</h1>
+    <p>Discover thousands of books across all genres.</p>
+  </div>
+</section>
+
+
+<section class="genres" id="genres">
+  <h2>Browse Genres</h2>
+
+  <div class="genre-grid">
+    <a href="romance.html" class="genre-card">
+  <img src="romance.jpg">
+  <div class="genre-title">ROMANCE</div>
+</a>
+
+    <a href="adventure.html" class="genre-card">
+      <img src="adventure.jpg">
+      <div class="genre-title">ACTION & ADVENTURE</div>
+    </a>
+
+    <a href="mystery.html" class="genre-card">
+      <img src="mystery.jpg">
+      <div class="genre-title">MYSTERY</div>
+  </a>
+
+    <a href="fantasy.html" class="genre-card">
+      <img src="fantasy.jpg">
+      <div class="genre-title">FANTASY</div>
+    </a>
+
+    <a href="sciencefiction.html" class="genre-card">
+      <img src="science.jpg">
+      <div class="genre-title">SCIENCE FICTION</div>
+    </a>
+
+    <a href="biography.html" class="genre-card">
+      <img src="biography.jpg">
+      <div class="genre-title">BIOGRAPHY</div>
+    </a>
+    <a href="childrens.html" class="genre-card">
+  <img src="childrens.jpg">
+  <div class="genre-title">CHILDREN'S</div>
+</a>
+
+<a href="horror.html" class="genre-card">
+  <img src="horror.jpg">
+  <div class="genre-title">HORROR</div>
+</a>
+
+  </div>
+</section>
+
+
+ <footer class="big-footer" id="contact">
+
+  <div class="footer-container">
+
+    <div class="footer-column">
+      <h3>Library</h3>
+      <a href="#">Genres</a>
+      <a href="#">Languages</a>
+      <a href="#">Authors</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>Community</h3>
+      <a href="#">Articles</a>
+      <a href="#">Author Interviews</a>
+      <a href="#">Newsletter</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>Company</h3>
+      <a href="#">Author Services</a>
+      <a href="#">About / Contact</a>
+      <a href="#">Accessibility Statement</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>Follow</h3>
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom-row">
+    <div>2026 BookBay LLC. All Rights Reserved.</div>
+    <div>Terms - Privacy</div>
+  </div>
+
+</footer>
+<div class="footer">
+   2026 BookBay | All Rights Reserved
+</div>
+<script>
+
+function toggleDarkMode(){
+  document.body.classList.toggle("dark-mode");
+}
+
+setTimeout(function(){
+  document.getElementById("loader").style.display = "none";
+},3000);
+
+</script>
+</body>
+</html>

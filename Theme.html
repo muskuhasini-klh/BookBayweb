@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Theme Example</title>
+
+    <style>
+        /* Already existing styling */
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: lightgray;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Dark theme */
+        .dark {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Button already has class="btn" -->
+    <button id="themeBtn" class="btn">Dark Mode</button>
+
+<script>
+
+const button = document.getElementById("themeBtn");
+
+button.addEventListener("click", function () {
+
+    if (button.innerText === "Dark Mode") {
+
+
+    // Check if dark class already exists on body
+   
+
+        document.body.classList.add("dark");
+        button.innerText = "Light Mode";
+
+    } else {
+
+        document.body.classList.remove("dark");
+        button.innerText = "Dark Mode";
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>

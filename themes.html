@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>themes</title>
+    </head>
+<body>
+    <p>checking theme toggle using event handling</p>
+    <button id ="theme">Dark mode</button>
+    <script>
+        const btnEle = document.getElementById("theme");
+        //btnEle.onclick=function change(){
+
+        //}
+        //btnEle.addEventListener(eventType,callback function)
+        btnEle.addEventListener("Click",() =>{
+            if(btnEle.textContent=="Dark Mode"){
+                document.body.style.backgroundColor="white";
+             document.body.classnmae="dark"
+             btnAEle.textContent="Light Mode";
+            }
+            else{
+                document.body.style.backgroundColor="black";
+                document.body.style.backgroundColor="white";
+
+            }
+        });
+
+    </script>
+</body>
+</html>

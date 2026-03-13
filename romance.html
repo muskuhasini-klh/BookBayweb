@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Romance Books - BookBay</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#f4f4f4;
+}
+
+/* Header */
+.header{
+  background:#c8a27a;
+  padding:20px 60px;
+  color:white;
+  font-size:22px;
+  font-weight:bold;
+}
+
+/* Container */
+.book-section{
+  padding:50px 60px;
+}
+
+.book-section h2{
+  margin-bottom:30px;
+}
+
+/* Grid */
+.book-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:30px;
+}
+
+/* Book Card */
+.book-card{
+  background:white;
+  border-radius:10px;
+  padding:15px;
+  text-align:center;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.book-card img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+  border-radius:8px;
+  margin-bottom:10px;
+}
+
+.book-card h4{
+  margin-bottom:15px;
+}
+
+/* Buttons */
+.book-actions button{
+  padding:8px 12px;
+  margin:4px;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+  font-size:13px;
+}
+
+.rent{
+  background:#ffcc70;
+}
+
+.buy{
+  background:#c8a27a;
+  color:white;
+}
+
+.read{
+  background:#6c757d;
+  color:white;
+}
+
+.book-actions button:hover{
+  opacity:0.8;
+}
+
+/* Back button */
+.back-home{
+  display:inline-block;
+  margin-top:40px;
+  padding:10px 20px;
+  background:#c8a27a;
+  color:white;
+  text-decoration:none;
+  border-radius:6px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  Romance Books
+</div>
+
+<section class="book-section">
+
+  <h2>Popular Romance Books</h2>
+
+  <div class="book-grid">
+
+    <div class="book-card">
+      <img src="hebreathes.jpg">
+      <h4>The Air he Breathes</h4>
+      <div class="book-actions">
+        <button class="rent">Rent</button>
+        <button class="buy">Buy</button>
+        <button class="read">Read Online</button>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <img src="twisted.jpg">
+      <h4>Twisted Games</h4>
+      <div class="book-actions">
+        <button class="rent">Rent</button>
+        <button class="buy">Buy</button>
+        <button class="read">Read Online</button>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <img src="fakeskating.jpg">
+      <h4>Fake Skating</h4>
+      <div class="book-actions">
+        <button class="rent">Rent</button>
+        <button class="buy">Buy</button>
+        <button class="read">Read Online</button>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <img src="Verity.jpg">
+      <h4>Verity</h4>
+      <div class="book-actions">
+        <button class="rent">Rent</button>
+        <button class="buy">Buy</button>
+        <button class="read">Read Online</button>
+      </div>
+    </div>
+
+  </div>
+
+  <a href="index.html" class="back-home">← Back to Home</a>
+
+</section>
+
+</body>
+</html>
